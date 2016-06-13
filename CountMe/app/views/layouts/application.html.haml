@@ -1,0 +1,16 @@
+!!! 5
+%html
+%head
+  = favicon_link_tag 'check-box.png'
+  %title
+    Count.Me
+  = stylesheet_link_tag    "application"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+%body
+  .page-header
+    .logo
+      =image_tag('check-box.png')
+      Count.me
+      %p Make your Vote Count
+= yield

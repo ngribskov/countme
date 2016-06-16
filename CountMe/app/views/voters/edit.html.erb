@@ -1,0 +1,25 @@
+<h1>Voter#edit</h1>
+<p>Find me in app/views/voter/edit.html.erb</p>
+<%= form_for @voter do |i| %>
+  <%= i.label :name_f %>
+  <%= i.text_field :name_f%><br />
+
+  <%= i.label :name_l %>
+  <%= i.text_field :name_l %><br />
+
+  <%= i.label :address %>
+  <%= i.text_field :address %><br />
+
+  <%= i.label :city %>
+  <%= i.text_field :city %><br />
+
+  <%= i.label :state %>
+  <%= i.text_field :state %><br />
+
+  <%= i.label :zip  %>
+  <%= i.text_field :zip %><br />
+
+  <%= i.submit %>
+<% end %>
+
+<%= link_to "Delete this Entry", voter_path(@voter.id), method: 'delete'%>

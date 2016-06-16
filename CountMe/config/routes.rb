@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/voter_info', to: "voter#index"
   post '/voter_info', to: "voter#after_submit"
 

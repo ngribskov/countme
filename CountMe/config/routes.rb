@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+devise_for :users
 
 resources :voters
 
@@ -7,7 +8,7 @@ resources :voters
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'voters#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

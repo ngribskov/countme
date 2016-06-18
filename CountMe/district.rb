@@ -1,8 +1,5 @@
 require 'politician.rb'
-# districts_by_zip = CSV.read("district_by_zipcode.csv", headers: true)
-# districts_by_zip.select{|x| x['ZCTA'] == '47906'}
-#
-# politician_district = '01'
+
 a = Politician.new
 puts "First Name"
 a.name_f = gets.strip.chomp

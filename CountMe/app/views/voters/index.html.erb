@@ -12,4 +12,11 @@
    <%= i.devise_id %>
  <% end %>
 
+<p>
+   Current User:
+</p>
+<%= current_user.id %>
+<%= current_user.email %>
+
  <%= link_to 'Sign Out', destroy_user_session_path, method: 'DELETE' %>
+ <%= link_to 'Fill In Your Information', new_voter_path, method: 'GET' %>

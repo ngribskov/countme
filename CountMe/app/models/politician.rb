@@ -1,5 +1,7 @@
 require 'csv'
 class Politician < ActiveRecord::Base
+  has_many :elected_throughs
+  has_many :voters, through: :elected_throughs
   def self.generate
     a = Politician.new
     puts "First Name"

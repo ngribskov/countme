@@ -51,7 +51,6 @@ class VotersController < ApplicationController
     # president
     t = ElectedThrough.new
     t.voter_id = i.id
-    binding.pry
     t.politician_id = Politician.where(job: 'President of the United States').ids[0]
     t.save!
 

@@ -1,6 +1,10 @@
 class VotersController < ApplicationController
+
+  before_action :authenticate_user!
+
   def index
     @voters = Voter.all
+
   end
 
   def create
@@ -12,9 +16,11 @@ class VotersController < ApplicationController
     i.city = voter_hash['city']
     i.state = voter_hash['state']
     i.zip = voter_hash['zip']
+    i.user = current_user
+    i.save!
 
-#This section inputs data into the api_data model while collecting data from the user.
-     raw = ApiDatum.parse(i.address,i.city,i.state,i.zip)
+    # this section inputs data into the api_data model while collecting data from the user.
+    raw = ApiDatum.parse(i.address,i.city,i.state,i.zip)
 
      j = ApiDatum.new
      j.l_name = raw['pollingLocations'][0]['address']['locationName']
@@ -25,19 +31,17 @@ class VotersController < ApplicationController
      j.l_date = raw['election']['electionDay']
      j.l_hours = raw['pollingLocations'][0]['pollingHours']
      j.l_url = 'https://www.vote4dc.com/ApplyInstructions/Register'
+     j.voter = i
+     j.save!
 
-# Checks to see if there is already an entry in the api_data model which corresponds to this location, if there is, assigns that id instead and doesnt save the new entry
-     if ApiDatum.where(l_name: j.l_name).ids[0] != nil
-       i.api_id = ApiDatum.where(l_name: j.l_name).ids[0]
-     else
-       j.save
-       i.api_id = j.id
-     end
-      if i.save
-
-       redirect_to voter_path(i.id)
-      end
+    # checks if i was saved, if not returns an error
+    if i.save!
+      redirect_to voter_path(i.id)
+    else
+      # there's an error
+    end
   end
+
   def new
     @voter_form = Voter.new
   end

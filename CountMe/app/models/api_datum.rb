@@ -15,7 +15,6 @@ class ApiDatum < ActiveRecord::Base
     http.use_ssl = (url.scheme == "https")
     response = http.request(req)
     raw = response.body
-    binding.pry
     JSON.parse(raw)
   end
 

@@ -1,3 +1,4 @@
+require 'csv'
 class VotersController < ApplicationController
 
   before_action :authenticate_user!
@@ -50,25 +51,27 @@ class VotersController < ApplicationController
     # president
     t = ElectedThrough.new
     t.voter_id = i.id
-    t.politician_id = Politician.where(job: 'President of the United States').id
+    t.politician_id = Politician.where(job: 'President of the United States').ids[0]
     t.save!
 
     # vice president
     t = ElectedThrough.new
-    t.politician_id = Politician.where(job: 'Vice President of the United States').id
+    t.voter_id = i.id
+    t.politician_id = Politician.where(job: 'Vice President of the United States').ids[0]
     t.save!
 
     # representative
     t = ElectedThrough.new
+    t.voter_id = i.id
     t.politician_id = representative[0]['id']
     t.save!
 
     # two senators
-    t = ElectedThrough.new
     a = Politician.where(job: 'Senator')
     a.each do |x|
     t = ElectedThrough.new
-    t.id = x.id
+    t.voter_id = i.id
+    t.politician_id = x.id
     t.save!
     end
 

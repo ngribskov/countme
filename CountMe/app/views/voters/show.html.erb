@@ -1,10 +1,41 @@
-<h1>Voter#show</h1>
-<p>Find me in app/views/voter/show.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        var myLatLng = {lat: <%=@lat%>, lng: <%=@lng%>};
 
-<%= @voter.id  %>
-<%= @voter.name_f %>
-<%= @voter.name_l %>
-<%= @voter.address %>
-<%= @voter.city %>
-<%= @voter.state %>
-<%= @voter.zip %>
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Polling Location'
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADg9cO6tVObFRbGvmPeAJcmrc13BbbqeQ&callback=initMap"
+    async defer></script>
+  </body>
+</html>

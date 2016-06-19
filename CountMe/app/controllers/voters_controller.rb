@@ -4,6 +4,7 @@ class VotersController < ApplicationController
   before_action :authenticate_user!
 
   def index
+
     @voters = Voter.all
 
   end
@@ -120,6 +121,28 @@ end
   def show
     id = params[:id]
     @voter = Voter.find(id)
+    current_api_id = Voter.find(id).api_id
+    current_loc = ApiDatum.find(current_api_id)
+    current_loc_address = current_loc.l_address + ' ' + current_loc.l_city + ' ' + current_loc.l_state + ' ' + current_loc.l_zip
 
+    @query = {
+      :address => current_loc_address,
+      :key => "AIzaSyADg9cO6tVObFRbGvmPeAJcmrc13BbbqeQ",
+      :size => '300x300',
+      :markers => current_loc_address,
+      :sensor => 'false'
+    }.to_query
+    url = URI.parse("https://maps.googleapis.com/maps/api/geocode/json?" + @query)
+    req = Net::HTTP::Get.new(url.to_s)
+    http = Net::HTTP.new(url.host,url.port)
+    http.use_ssl = (url.scheme == "https")
+    response = http.request(req)
+    raw = response.body
+    lat_long_holder = JSON.parse(raw)
+
+
+    @lat = lat_long_holder['results'][0]['geometry']['location']['lat']
+    @lng = lat_long_holder['results'][0]['geometry']['location']['lng']
+    @name = current_loc.l_name
 end
 end

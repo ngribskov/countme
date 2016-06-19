@@ -1,23 +1,8 @@
 #map {
   height: inherit;
   width: inherit;
-  // width: 600px;
-  // height : 370px;
-  // margin-top: 10px;
-    // display: inline;
 }
-// .map_poll_reg {
-//   display: inline-block;
-// }
-// .map_poll_reg.polling_loccation{
-//   display: inline;
-// }
-// .map_poll_reg {
-//   display: inline;
-// }
-// #map{
-//
-// }
+
 
 .container_map{
   height : 370px;
@@ -34,10 +19,6 @@ body {
   margin: auto;
   display: flex;
 }
-//
-// #poll{
-//   padding: 50%;
-// }
 #map_info {
   flex: 1;
   display:block;
@@ -52,4 +33,112 @@ body {
 }
 #reg{
   @extend #poll
+}
+.rows {
+  width: 70%;
+  margin: auto;
+  .first_row {
+    border: 1px solid black;
+    display: flex;
+
+    .prez {
+      flex: 1;
+      display: flex;
+      height: 400px;
+      width: auto;
+      border: 3px solid #73AD21;
+        img {
+          flex: 1;
+          max-width: 100%;
+          height: 100%;
+          padding-right: 10px;
+        }
+        .info {
+          flex: 1;
+          word-wrap: break-word;
+        }
+    }
+
+    .vice_prez {
+      flex: 1;
+      display: flex;
+      height: 400px;
+      width: auto;
+      border: 3px solid #73AD21;
+        img {
+          flex: 1;
+          max-width: 100%;
+          height: 100%;
+          padding-right: 10px;
+        }
+        .info {
+          flex: 1;
+          word-wrap: break-word;
+        }
+    }
+  }
+
+  .second_row {
+    border: 3px solid black;
+    display: flex;
+
+    .sen_1 {
+      flex: 1;
+      display: flex;
+      height: 400px;
+      width: auto;
+      border: 3px solid #73AD21;
+      img {
+        flex: 1;
+        max-width: 100%;
+        height: 100%;
+        padding-right: 10px;
+      }
+      .info {
+        flex: 1;
+        word-wrap: break-word;
+      }
+    }
+
+    .sen_2 {
+      flex: 1;
+      display: flex;
+      height: 400px;
+      width: auto;
+      border: 3px solid #73AD21;
+        img {
+          flex: 1;
+          max-width: 100%;
+          height: 100%;
+          padding-right: 10px;
+        }
+        .info {
+          flex: 1;
+          word-wrap: break-word;
+        }
+    }
+  }
+
+  .third_row {
+    border: 3px solid black;
+    margin: auto;
+    display: flex;
+    .repz {
+      margin: auto;
+      display: flex;
+      height: 400px;
+      width: auto;
+      border: 3px solid #73AD21;
+        img {
+          flex: 1;
+          max-width: 100%;
+          height: 100%;
+          padding-right: 10px;
+        }
+        .info {
+          flex: 1;
+          word-wrap: break-word;
+        }
+    }
+  }
 }

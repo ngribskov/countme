@@ -46,13 +46,14 @@ class VotersController < ApplicationController
     # holds the district number for the first hash
     districts_by_zip_selected_first = districts_by_zip_selected[0][2]
     # pick the politicians in the table based on the users district
-    representative = Politician.where(district: districts_by_zip_selected_first)
+    @representative = Politician.where(district: districts_by_zip_selected_first)
 
     # president
     t = ElectedThrough.new
     t.voter_id = i.id
     t.politician_id = Politician.where(job: 'President of the United States').ids[0]
     t.save!
+
 
     # vice president
     t = ElectedThrough.new
@@ -63,7 +64,7 @@ class VotersController < ApplicationController
     # representative
     t = ElectedThrough.new
     t.voter_id = i.id
-    t.politician_id = representative[0]['id']
+    t.politician_id = @representative[0]['id']
     t.save!
 
     # two senators
@@ -74,6 +75,7 @@ class VotersController < ApplicationController
     t.politician_id = x.id
     t.save!
     end
+
 
 
     # checks if i was saved, if not returns an error
@@ -120,6 +122,74 @@ end
   def show
     id = params[:id]
     @voter = Voter.find(id)
+    elected = ElectedThrough.where(voter_id: id)
+
+
+
+    # display president
+    p = Politician.where(id: elected[0]['politician_id'])
+    @p_pic = p[0]['picture']
+    @p_namef = p[0]['name_f']
+    @p_namel = p[0]['name_l']
+    @p_job = p[0]['job']
+    @p_address = p[0]['address']
+    @p_city = p[0]['city']
+    @p_state = p[0]['state']
+    @p_zip = p[0]['zip']
+    @p_website = p[0]['website']
+    @p_district = p[0]['district']
+
+    # display vice president
+    vp = Politician.where(id: elected[1]['politician_id'])
+    @vp_pic = vp[0]['picture']
+    @vp_namef = vp[0]['name_f']
+    @vp_namel = vp[0]['name_l']
+    @vp_job = vp[0]['job']
+    @vp_address = vp[0]['address']
+    @vp_city = vp[0]['city']
+    @vp_state = vp[0]['state']
+    @vp_zip = vp[0]['zip']
+    @vp_website = vp[0]['website']
+    @vp_district = vp[0]['district']
+
+    # display representative
+    rp = Politician.where(id: elected[2]['politician_id'])
+    @rp_pic = rp[0]['picture']
+    @rp_namef = rp[0]['name_f']
+    @rp_namel = rp[0]['name_l']
+    @rp_job = rp[0]['job']
+    @rp_address = rp[0]['address']
+    @rp_city = rp[0]['city']
+    @rp_state = rp[0]['state']
+    @rp_zip = rp[0]['zip']
+    @rp_website = rp[0]['website']
+    @rp_district = rp[0]['district']
+
+    # display senator 1
+    s1 = Politician.where(id: elected[3]['politician_id'])
+    @s1_pic = s1[0]['picture']
+    @s1_namef = s1[0]['name_f']
+    @s1_namel = s1[0]['name_l']
+    @s1_job = s1[0]['job']
+    @s1_address = s1[0]['address']
+    @s1_city = s1[0]['city']
+    @s1_state = s1[0]['state']
+    @s1_zip = s1[0]['zip']
+    @s1_website = s1[0]['website']
+    @s1_district = s1[0]['district']
+    # display senator 2
+    s2 = Politician.where(id: elected[4]['politician_id'])
+    @s2_pic = s2[0]['picture']
+    @s2_namef = s2[0]['name_f']
+    @s2_namel = s2[0]['name_l']
+    @s2_job = s2[0]['job']
+    @s2_address = s2[0]['address']
+    @s2_city = s2[0]['city']
+    @s2_state = s2[0]['state']
+    @s2_zip = s2[0]['zip']
+    @s2_website = s2[0]['website']
+    @s2_district = s2[0]['district']
+
 
 end
 end

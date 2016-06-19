@@ -1,13 +1,13 @@
 require 'csv'
 class VotersController < ApplicationController
 
-  before_action :authenticate_user!
 
   def index
 
     @voters = Voter.all
 
   end
+  before_action :authenticate_user!
 
   def create
 
@@ -34,7 +34,7 @@ class VotersController < ApplicationController
     j.l_zip = raw['pollingLocations'][0]['address']['zip']
     j.l_date = raw['election']['electionDay']
     j.l_hours = raw['pollingLocations'][0]['pollingHours']
-    j.l_url = 'https://www.vote4dc.com/ApplyInstructions/Register'
+    j.l_url = 'https://www.ok.gov/elections/Voter_Info/Register_to_Vote/'
     j.voter = i
     j.save!
 
@@ -191,8 +191,8 @@ end
 
 
     current_api_id = Voter.find(id).api_id
-    current_loc = ApiDatum.find(current_api_id)
-    current_loc_address = current_loc.l_address + ' ' + current_loc.l_city + ' ' + current_loc.l_state + ' ' + current_loc.l_zip
+    @current_loc = ApiDatum.find(current_api_id)
+    current_loc_address = @current_loc.l_address + ' ' + @current_loc.l_city + ' ' + @current_loc.l_state + ' ' + @current_loc.l_zip
 
     @query = {
       :address => current_loc_address,
@@ -209,9 +209,9 @@ end
     raw = response.body
     lat_long_holder = JSON.parse(raw)
 
-
+    @state_name = ApiDatum.state_name(@current_loc.l_state)
     @lat = lat_long_holder['results'][0]['geometry']['location']['lat']
     @lng = lat_long_holder['results'][0]['geometry']['location']['lng']
-    @name = current_loc.l_name
+    @name = @current_loc.l_name
 end
 end

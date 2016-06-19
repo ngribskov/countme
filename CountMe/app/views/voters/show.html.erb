@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <div class="map_container">
+
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 100%;
-      }
-    </style>
+
   </head>
   <body>
-    <div id="map"></div>
+    <div class = "panel map_poll_reg">
+      <div class = "container_map">
+        <div id="map"></div>
+
         <script>
           var map;
           function initMap() {
@@ -38,7 +32,28 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADg9cO6tVObFRbGvmPeAJcmrc13BbbqeQ&callback=initMap"
         async defer></script>
       </div>
-      <!-- president -->
+      <div id='map_info'>
+      <div id='poll' class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Your Polling location is <%= @current_loc.l_name.titleize%></h3>
+        </div>
+
+        <div class="panel-body">
+          Address: <%=@current_loc.l_address.titleize%> <br />
+          <%=@current_loc.l_city.titleize%>, <%=@current_loc.l_state%> <%=@current_loc.l_zip%> <br />
+          Polling Hours are <%=@current_loc.l_hours%> on <%=@current_loc.l_date%></p>
+        </div>
+
+        <div class="panel-heading">
+          <h3 class="panel-title">Need to Register?</h3>
+        </div>
+        <div class="panel-body">
+          To Register in <%=@state_name%> please visit the
+          <%=link_to('registration page.',@current_loc.l_url)%>
+        </div>
+      </div>
+    </div>
+  </div>
       <img alt="Rails" src="<%= @p_pic %>" />  <br />
       First Name: <%= @p_namef %> <br />
       Last Name: <%= @p_namel %> <br />

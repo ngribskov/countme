@@ -1,0 +1,55 @@
+#map {
+  height: inherit;
+  width: inherit;
+  // width: 600px;
+  // height : 370px;
+  // margin-top: 10px;
+    // display: inline;
+}
+// .map_poll_reg {
+//   display: inline-block;
+// }
+// .map_poll_reg.polling_loccation{
+//   display: inline;
+// }
+// .map_poll_reg {
+//   display: inline;
+// }
+// #map{
+//
+// }
+
+.container_map{
+  height : 370px;
+  width: 600px;
+  flex: 1;
+  margin:10px 0 0 10px;
+}
+body {
+  display: block;
+}
+.panel.map_poll_reg{
+  height :390px;
+  width: 70%;
+  margin: auto;
+  display: flex;
+}
+//
+// #poll{
+//   padding: 50%;
+// }
+#map_info {
+  flex: 1;
+  display:block;
+      margin: 10px 10px 0 0;
+
+}
+
+#poll .panel-heading {
+
+  text-align: center;
+
+}
+#reg{
+  @extend #poll
+}

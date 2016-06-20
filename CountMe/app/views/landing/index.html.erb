@@ -1,5 +1,6 @@
 <div class = 'description'>
-  <h2> CountMe</h2>
+  <div class="panel panel-default">
+    <div class="panel-body">
   <p>
     CountMe is an app which will allow you to find out crucial information about
     upcoming elections. Sign Up and enter your address and CountMe will provide
@@ -11,6 +12,13 @@
     to your election information.
   </p>
 </div>
+</div>
 
- <%= link_to 'Sign Up', new_user_registration_path, method: 'GET' %>
- <%= link_to 'Sign In', new_user_session_path, method: 'GET' %>
+
+<div class = "btn btn-secondary">
+ <%= link_to 'Sign up', new_user_registration_path, method: 'GET', :class => "btn-secondary" %>
+ </div>
+<div class = "btn btn-secondary">
+ <%= link_to 'Sign In', new_user_session_path, method: 'GET', :class => "btn-secondary" %>
+ </div>
+</div>

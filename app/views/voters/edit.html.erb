@@ -1,11 +1,10 @@
-<h1>Voter#edit</h1>
-<p>Find me in app/views/voter/edit.html.erb</p>
-<%= form_for @voter do |i| %>
-  <%= i.label :name_f %>
-  <%= i.text_field :name_f%><br />
 
-  <%= i.label :name_l %>
-  <%= i.text_field :name_l %><br />
+<%= form_for @voter do |i| %>
+<%= i.label 'First Name' %>
+<%= i.text_field :name_f%><br />
+
+<%= i.label 'Last Name' %>
+<%= i.text_field :name_l %><br />
 
   <%= i.label :address %>
   <%= i.text_field :address %><br />

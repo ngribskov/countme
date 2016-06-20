@@ -121,7 +121,8 @@ end
   end
 
   def show
-    id = params[:id]
+
+    id = Voter.where(devise_id: current_user.id).ids[0]
     @voter = Voter.find(id)
     elected = ElectedThrough.where(voter_id: id)
 

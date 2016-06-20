@@ -1,0 +1,14 @@
+<h1>Voter#index</h1>
+<p>Find me in app/views/voter/index.html.erb</p>
+ <%= @voters.each do |i| %>
+   <%= i.id  %>
+   <%= i.name_f %>
+   <%= i.name_l %>
+   <%= i.address %>
+   <%= i.city %>
+   <%= i.state %>
+   <%= i.zip %>
+   <%= i.api_id %>
+   <%= i.devise_id %>
+   <br  >
+ <% end %>

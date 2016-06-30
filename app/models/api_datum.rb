@@ -6,7 +6,7 @@ class ApiDatum < ActiveRecord::Base
     query = {
       :address => address + city + state + zip,
       :electionId => electionId,
-      :key => "AIzaSyADg9cO6tVObFRbGvmPeAJcmrc13BbbqeQ"
+      :key => ENV['GOOGLE_CIVIC_API_KEY']
     }.to_query
     url = URI.parse("https://www.googleapis.com/civicinfo/v2/voterinfo?" + query)
 

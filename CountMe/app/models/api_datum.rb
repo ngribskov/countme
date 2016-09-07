@@ -1,11 +1,10 @@
 class ApiDatum < ActiveRecord::Base
   has_one :voter, foreign_key: "api_id"
 
-  def self.parse(address,city,state,zip)
-    electionId = '4224'
+  def self.parse(address,city,state,zip,election_id)
     query = {
       :address => address + city + state + zip,
-      :electionId => electionId,
+      :electionId => election_id,
       :key => "AIzaSyADg9cO6tVObFRbGvmPeAJcmrc13BbbqeQ"
     }.to_query
     url = URI.parse("https://www.googleapis.com/civicinfo/v2/voterinfo?" + query)
@@ -16,6 +15,23 @@ class ApiDatum < ActiveRecord::Base
     response = http.request(req)
     raw = response.body
     JSON.parse(raw)
+  end
+
+  def self.candidates(address,city,state,zip,election_id)
+    query = {
+      :address => address + city + state + zip,
+      :electionId => election_id,
+      :key => "AIzaSyADg9cO6tVObFRbGvmPeAJcmrc13BbbqeQ"
+    }.to_query
+    url = URI.parse("https://www.googleapis.com/civicinfo/v2/voterinfo?" + query)
+
+    req = Net::HTTP::Get.new(url.to_s)
+    http = Net::HTTP.new(url.host,url.port)
+    http.use_ssl = (url.scheme == "https")
+    response = http.request(req)
+    raw = response.body
+    contests = JSON.parse(raw)['contests']
+    return contests
   end
 
   def self.state_name(state)
@@ -76,6 +92,6 @@ class ApiDatum < ActiveRecord::Base
                 "WY": "Wyoming"}
             states[state.parameterize.to_sym.upcase]
 
-            end
+  end
 
 end

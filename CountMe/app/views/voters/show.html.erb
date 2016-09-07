@@ -54,88 +54,91 @@
       </div>
     </div>
   </div>
-      <div class="rows">
-        <div class = "first_row">
-          <div class = "prez">
-            <!-- president -->
-            <img alt="Rails" src="<%= @p_pic %>" />
-            <div class = "info">
-              First Name: <%= @p_namef %> <br />
-              Last Name: <%= @p_namel %> <br />
-              Job: <%= @p_job %> <br />
-              Address: <%= @p_address %> <br />
-              City: <%= @p_city %> <br />
-              State: <%= @p_state %> <br />
-              Zip Code: <%= @p_zip %> <br />
-              <a href="<%= @p_website %>">Website</a>
-            </div>
-          </div>
-
-          <div class = "vice_prez">
-            <!-- vice president -->
-            <img alt="Rails" src="<%= @vp_pic %>" />
-            <div class = "info">
-              First Name: <%= @vp_namef %> <br />
-              Last Name: <%= @vp_namel %> <br />
-              Job: <%= @vp_job %> <br />
-              Address: <%= @vp_address %> <br />
-              City: <%= @vp_city %> <br />
-              State: <%= @vp_state %> <br />
-              Zip Code: <%= @vp_zip %> <br />
-              <a href="<%= @vp_website %>">Website</a>
-            </div>
-          </div>
-        </div>
-
-        <div class = "second_row">
-
-
-          <div class = "sen_1">
-            <!-- senator 1 -->
-            <img alt="Rails" src="<%= @s1_pic %>" />
-            <div class="info">
-              First Name: <%= @s1_namef %> <br />
-              Last Name: <%= @s1_namel %> <br />
-              Job: <%= @s1_job %> <br />
-              Address: <%= @s1_address %> <br />
-              City: <%= @s1_city %> <br />
-              State: <%= @s1_state %> <br />
-              Zip Code: <%= @s1_zip %> <br />
-              <a href="<%= @s1_website %>">Website</a>
-            </div>
-          </div>
-          <div class = "sen_2">
-            <!-- senator 2 -->
-            <img alt="Rails" src="<%= @s2_pic %>" />
-            <div class="info">
-              First Name: <%= @s2_namef %> <br />
-              Last Name: <%= @s2_namel %> <br />
-              Job: <%= @s2_job %> <br />
-              Address: <%= @s2_address %> <br />
-              City: <%= @s2_city %> <br />
-              State: <%= @s2_state %> <br />
-              Zip Code: <%= @s2_zip %> <br />
-              <a href="<%= @s2_website %>">Website</a>
-            </div>
-          </div>
-
-        </div>
-        <div class = "third_row">
-          <div class = "repz">
-            <!-- representative -->
-            <img alt="Rails" src="<%= @rp_pic %>" />
-            <div class="info">
-              First Name: <%= @rp_namef %> <br />
-              Last Name: <%= @rp_namel %> <br />
-              Job: <%= @rp_job %> <br />
-              Address: <%= @rp_address %> <br />
-              City: <%= @rp_city %> <br />
-              State: <%= @rp_state %> <br />
-              Zip Code: <%= @rp_zip %> <br />
-              <a href="<%= @rp_website %>">Website</a>
-            </div>
-          </div>
-        </div>
-      </div>
   </body>
 </html>
+
+
+
+<!-- <div class="rows"> This selection of code has been rendered obsolete
+  <div class = "first_row">
+    <div class = "prez">
+      president
+      <img alt="Rails" src="<%= @p_pic %>" />
+      <div class = "info">
+        First Name: <%= @p_namef %> <br />
+        Last Name: <%= @p_namel %> <br />
+        Job: <%= @p_job %> <br />
+        Address: <%= @p_address %> <br />
+        City: <%= @p_city %> <br />
+        State: <%= @p_state %> <br />
+        Zip Code: <%= @p_zip %> <br />
+        <a href="<%= @p_website %>">Website</a>
+      </div>
+    </div>
+
+    <div class = "vice_prez">
+      vice president
+      <img alt="Rails" src="<%= @vp_pic %>" />
+      <div class = "info">
+        First Name: <%= @vp_namef %> <br />
+        Last Name: <%= @vp_namel %> <br />
+        Job: <%= @vp_job %> <br />
+        Address: <%= @vp_address %> <br />
+        City: <%= @vp_city %> <br />
+        State: <%= @vp_state %> <br />
+        Zip Code: <%= @vp_zip %> <br />
+        <a href="<%= @vp_website %>">Website</a>
+      </div>
+    </div>
+  </div>
+
+  <div class = "second_row">
+
+
+    <div class = "sen_1">
+      senator 1
+      <img alt="Rails" src="<%= @s1_pic %>" />
+      <div class="info">
+        First Name: <%= @s1_namef %> <br />
+        Last Name: <%= @s1_namel %> <br />
+        Job: <%= @s1_job %> <br />
+        Address: <%= @s1_address %> <br />
+        City: <%= @s1_city %> <br />
+        State: <%= @s1_state %> <br />
+        Zip Code: <%= @s1_zip %> <br />
+        <a href="<%= @s1_website %>">Website</a>
+      </div>
+    </div>
+    <div class = "sen_2">
+      senator 2
+      <img alt="Rails" src="<%= @s2_pic %>" />
+      <div class="info">
+        First Name: <%= @s2_namef %> <br />
+        Last Name: <%= @s2_namel %> <br />
+        Job: <%= @s2_job %> <br />
+        Address: <%= @s2_address %> <br />
+        City: <%= @s2_city %> <br />
+        State: <%= @s2_state %> <br />
+        Zip Code: <%= @s2_zip %> <br />
+        <a href="<%= @s2_website %>">Website</a>
+      </div>
+    </div>
+
+  </div>
+  <div class = "third_row">
+    <div class = "repz">
+      representative
+      <img alt="Rails" src="<%= @rp_pic %>" />
+      <div class="info">
+        First Name: <%= @rp_namef %> <br />
+        Last Name: <%= @rp_namel %> <br />
+        Job: <%= @rp_job %> <br />
+        Address: <%= @rp_address %> <br />
+        City: <%= @rp_city %> <br />
+        State: <%= @rp_state %> <br />
+        Zip Code: <%= @rp_zip %> <br />
+        <a href="<%= @rp_website %>">Website</a>
+      </div>
+    </div>
+  </div>
+</div> -->

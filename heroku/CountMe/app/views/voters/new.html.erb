@@ -1,0 +1,25 @@
+
+<%= form_for @voter_form do |i| %>
+  <%= i.label 'First Name' %>
+  <%= i.text_field :name_f%><br />
+
+  <%= i.label 'Last Name' %>
+  <%= i.text_field :name_l %><br />
+
+  <%= i.label :address %>
+  <%= i.text_field :address %><br />
+
+  <%= i.label :city %>
+  <%= i.text_field :city %><br />
+
+  <%= i.label :state %>
+  <%= i.text_field :state %><br />
+
+  <%= i.label :zip  %>
+  <%= i.text_field :zip %><br />
+
+  <%= i.label 'Select your Election:'%>
+  <%= select_tag(:election_id, options_for_select(@list)) %><br/>
+
+  <%= i.submit %>
+<% end %>

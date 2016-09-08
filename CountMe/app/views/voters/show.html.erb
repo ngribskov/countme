@@ -48,10 +48,34 @@
           <h3 class="panel-title">Need to Register?</h3>
         </div>
         <div class="panel-body">
-          To Register in <%=@state_name%> please visit the
-          <%=link_to('registration page.',@current_loc.l_url)%>
+          To Register please visit
+          <%=link_to('USA.gov',@current_loc.l_url)%>
+          for more information.
         </div>
       </div>
+    </div>
+  </div>
+  <div class = "panel" id= "candidate_panel">
+    <div class = "container candidates">
+      <% @contests.each do |x| %>
+          <div class = "col-md-6 election_on_ballot" >
+            <h4>
+              <%= x['primaryParty'].titleize + ' ' + x['type'].titleize + ' for ' + x['office'].titleize %>
+              <% x['candidates'].each do |y| %>
+                <h5>
+                  <%= y['name'].titleize %>
+                </h5>
+                <p>
+                  <%= y['party'].titleize %>
+                <address>
+                  <a href= <%= y['candidateUrl']%>>Website</a>
+                   <a href= <%=y['phone']%>>Phone</a>
+                   <a href= mailto:<%=y['email']%>>Email </a>
+                </address>
+              <% end %>
+            </h4>
+          </div>
+      <% end %>
     </div>
   </div>
   </body>

@@ -35,10 +35,9 @@ class VotersController < ApplicationController
     j.l_zip = raw['pollingLocations'][0]['address']['zip']
     j.l_date = raw['election']['electionDay']
     j.l_hours = raw['pollingLocations'][0]['pollingHours']
-    j.l_url = 'https://www.ok.gov/elections/Voter_Info/Register_to_Vote/'
+    j.l_url = 'https://www.usa.gov/register-to-vote'
     j.voter = i
     j.save!
-    binding.pry
 
     # this section updates the elected_through with uses and politicians
 ######## This section has been rendered obsolete
@@ -220,5 +219,5 @@ class VotersController < ApplicationController
     @lat = lat_long_holder['results'][0]['geometry']['location']['lat']
     @lng = lat_long_holder['results'][0]['geometry']['location']['lng']
     @name = @current_loc.l_name
-end
+  end
 end
